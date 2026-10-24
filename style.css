@@ -1,4 +1,4 @@
-/* ============ THEME: edit colours and fonts here ============ */
+/* ============ THEME ============ */
 :root {
   --bg: #102F35;            /* page background */
   --banner: #17252B;        /* banner, cards, panels */
@@ -50,12 +50,75 @@ p { margin: 0; }
 .when dt { color: var(--text); font-weight: 600; }
 .when dd { margin: 0 0 .6rem; }
 
-/* ---------- Contact panel ---------- */
-.panel { margin-top: 1.5rem; padding: 1.5rem 1.75rem; background: var(--banner); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius); }
-.panel[hidden] { display: none; }
-.panel dl { display: grid; grid-template-columns: max-content 1fr; gap: .6rem 2rem; margin: 0; }
-.panel dt { color: var(--text); font-weight: 600; }
-.panel dd { margin: 0; }
+/* ---------- Pop-up Button ---------- */
+/* Full-screen Backdrop Blur */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 47, 53, 0.65); /* Matches --bg with transparency */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+}
+
+.popup-overlay[hidden] {
+  display: none !important;
+}
+
+/* Card Content */
+.popup-card {
+  position: relative;
+  width: min(90vw, 420px);
+  padding: 2rem 1.75rem 1.75rem;
+  background: var(--banner);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+.popup-card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.popup-card p {
+  margin-bottom: 0.5rem;
+}
+
+/* Close button matching theme */
+.close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.close-btn:hover {
+  background: var(--line);
+  color: var(--accent);
+}
+
+.close-btn:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
 
 /* ---------- About us (paper-style author blocks) ---------- */
 .section-title { margin-bottom: 1.5rem; font-size: 2rem; }

@@ -40,7 +40,7 @@
     <figure>
       <h2>Experiment</h2>
       <div class="media"><img src="assets/experiment.gif" alt="Real drone flight"></div>
-      <figcaption>Real-life experiment of the same code inside the lab.</figcaption>
+      <figcaption>Real life experiment of the same code inside the lab.</figcaption>
     </figure>
   </section>
 
@@ -49,7 +49,7 @@
   <!-- ============ BUTTONS ============ -->
   <section class="actions">
     <div class="card">
-      <a class="btn" href="PASTE_REGISTRATION_LINK_HERE">Register</a>
+      <a class="btn" href="https://conference.albertarobotics.ca/registration/">Register</a>
       <p>Reserve your seat now. Spaces are limited.</p>
       <dl class="when">
         <dt>When</dt><dd>November 12, 2026, 15:30 to 17:00</dd>
@@ -69,15 +69,35 @@
   </section>
 
   <!-- Revealed by the Contact button -->
-  <section class="panel" id="contact-panel" hidden>
-    <dl>
-      <dt>Mailing address</dt><dd>Lab name, Street address, City, Province, Postal code</dd>
-      <dt>Office location</dt><dd>Building, Room number</dd>
-      <dt>Office phone</dt><dd>+1 (000) 000-0000</dd>
-      <dt>Email</dt><dd><a href="mailto:lab@example.edu">lab@example.edu</a></dd>
-      <dt>Location</dt><dd>University, City, Country (<a href="PASTE_MAP_LINK_HERE">map</a>)</dd>
-    </dl>
-  </section>
+  <div id="contact-panel" class="popup-overlay" hidden>
+    <div class="popup-card">
+      <button type="button" class="close-btn" id="close-btn" aria-label="Close contact details">&times;</button>
+      <h2>Contact Us</h2>
+      <dl class="when">
+        <h3>Email</h3>
+      <p><a href="mailto:alan.lynch@ualberta.ca">alan.lynch@ualberta.ca</a></p>
+      <h3>Office phone</h3>
+      <p><a href="tel:+17804925147">+1 (780) 492-5147</a></p>
+      <h3>Location</h3>
+      <p>
+        Room W4-050<br>
+        ECERF Building (<a href="https://maps.app.goo.gl/ZKnCwWi2fNKg6QhK7">map</a>)<br>
+        9107-116 Street NW<br>
+        University of Alberta<br>
+        Edmonton, Alberta
+      </p>
+      <h3>Mailing address</h3>
+      <p>
+        Professor A. F. Lynch<br>
+        Donadeo Innovation Centre for Engineering<br>
+        9211-116 Street NW<br>
+        Edmonton, Alberta<br>
+        Canada T6G 1H9
+      </p>
+      </dl>      
+    </div>
+  </div>
+
   <hr>
 
   <!-- ============ ABOUT US ============ -->
@@ -132,14 +152,40 @@
 </footer>
 
 <script>
-  // contact panel toggle
   const btn = document.getElementById('contact-btn');
   const panel = document.getElementById('contact-panel');
-  btn.addEventListener('click', () => {
-    const open = panel.hidden;
-    panel.hidden = !open;
-    btn.setAttribute('aria-expanded', open);
+  const closeBtn = document.getElementById('close-btn');
+
+  function togglePanel(show) {
+    const isOpen = show !== undefined ? show : panel.hidden;
+    panel.hidden = !isOpen;
+    btn.setAttribute('aria-expanded', isOpen);
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    togglePanel();
   });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => togglePanel(false));
+  }
+
+  // Close when clicking the backdrop overlay area outside the card
+  panel.addEventListener('click', (e) => {
+    if (e.target === panel) {
+      togglePanel(false);
+    }
+  });
+
+  // Close on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !panel.hidden) {
+      togglePanel(false);
+      btn.focus();
+    }
+  });
+
   // hide broken image icons until files are added
   document.querySelectorAll('img').forEach(i => i.addEventListener('error', () => i.style.visibility = 'hidden'));
 </script>
