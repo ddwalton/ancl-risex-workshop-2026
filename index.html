@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PX4 + ROS 2 Drone Control | RISEx Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ BANNER ============ -->
+<header class="banner">
+  <div class="wrap banner-inner">
+    <img class="banner-gif" src="assets/ANCL_logo.gif" alt="ANCL" >
+    <div>
+      <p class="kicker">RISEx Workshop</p>
+      <h1>PX4 + ROS 2 Drone Control</h1>
+      <p class="lede">Learn how to command a real drone from code using PX4 and ROS2.
+        Build an outer-loop controller, 
+        test it in simulation, then watch it fly in real life!
+      </p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ SIMULATION / EXPERIMENT GIFS ============ -->
+  <section class="demos">
+    <figure>
+      <h2>Simulation</h2>
+      <div class="media"><img src="assets/simulation.gif" alt="PX4 SITL simulation"></div>
+      <figcaption>Software-in-the-loop (SITL) simulation of a drone flying a circular trajectory 
+        using the Gazebo robotics simulator.
+      </figcaption>
+    </figure>
+    <figure>
+      <h2>Experiment</h2>
+      <div class="media"><img src="assets/experiment.gif" alt="Real drone flight"></div>
+      <figcaption>Real-life experiment of the same code inside the lab.</figcaption>
+    </figure>
+  </section>
+
+  <hr>
+
+  <!-- ============ BUTTONS ============ -->
+  <section class="actions">
+    <div class="card">
+      <a class="btn" href="PASTE_REGISTRATION_LINK_HERE">Register</a>
+      <p>Reserve your seat now. Spaces are limited.</p>
+      <dl class="when">
+        <dt>When</dt><dd>November 12, 2026, 15:30 to 17:00</dd>
+        <dt>Where</dt><dd>INSERT Building, Room number, University of Alberta</dd>
+      </dl>
+    </div>
+
+    <div class="card">
+      <a class="btn" href="about.html">About Workshop</a>
+      <p>See what we're going to, from slides to simulation to real flight.</p>
+    </div>
+
+    <div class="card">
+      <button class="btn" id="contact-btn" type="button" aria-expanded="false" aria-controls="contact-panel">Contact</button>
+      <p>Questions? Find the lab’s details here.</p>
+    </div>
+  </section>
+
+  <!-- Revealed by the Contact button -->
+  <section class="panel" id="contact-panel" hidden>
+    <dl>
+      <dt>Mailing address</dt><dd>Lab name, Street address, City, Province, Postal code</dd>
+      <dt>Office location</dt><dd>Building, Room number</dd>
+      <dt>Office phone</dt><dd>+1 (000) 000-0000</dd>
+      <dt>Email</dt><dd><a href="mailto:lab@example.edu">lab@example.edu</a></dd>
+      <dt>Location</dt><dd>University, City, Country (<a href="PASTE_MAP_LINK_HERE">map</a>)</dd>
+    </dl>
+  </section>
+  <hr>
+
+  <!-- ============ ABOUT US ============ -->
+  <section>
+    <h2 class="section-title">About Us</h2>
+
+    <article class="person">
+      <div>
+        <h3>Alan Lynch</h3>
+        <p class="rank">Professor</p>
+      </div>
+      <div>
+        <h4>Lead Organizer</h4>
+        <p class="bio">INSERT: A short biography here</p>
+      </div>
+    </article>
+
+    <article class="person">
+      <div>
+        <h3>Mohssen Elsshar</h3>
+        <p class="rank">Ph.D. Student</p>
+      </div>
+      <div>
+        <h4>Presenter</h4>
+        <p class="bio">INSERT: A short biography here</p>
+      </div>
+    </article>
+
+    <article class="person">
+      <div>
+        <h3>Dion Walton</h3>
+        <p class="rank">Undergraduate Student</p>
+      </div>
+      <div>
+        <h4>Presenter</h4>
+        <p class="bio">
+          Dion Walton is a Undergraduate Student at the University of Alberta currently pursuing a BSc in Computer 
+          Engineering. He has worked since May of 2026 at ANCL as a robotics engineer and lab technician, aiding
+          in the development and experiments motion/force control of a fully-actuated hexarotor and motion control of 
+          quadrotor with an off-center slung load. In this time, he has gained extensive experience using ROS2 and PX4 
+          for drone control, simulation, and experimental design. His current interests are in embedded control, 
+          as well as ethical applications of intelligent systems for drones.  
+        </p>
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<footer class="wrap" style="padding:3rem 1.5rem;text-align:center;font-size:.85rem">
+  RISEx Workshop. Applied Nonlinear Control Lab (ANCL), University of Alberta.
+</footer>
+
+<script>
+  // contact panel toggle
+  const btn = document.getElementById('contact-btn');
+  const panel = document.getElementById('contact-panel');
+  btn.addEventListener('click', () => {
+    const open = panel.hidden;
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', open);
+  });
+  // hide broken image icons until files are added
+  document.querySelectorAll('img').forEach(i => i.addEventListener('error', () => i.style.visibility = 'hidden'));
+</script>
+</body>
+</html>

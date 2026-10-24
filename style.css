@@ -1,0 +1,94 @@
+/* ============ THEME: edit colours and fonts here ============ */
+:root {
+  --bg: #102F35;            /* page background */
+  --banner: #17252B;        /* banner, cards, panels */
+  --accent: #81D5BC;        /* buttons, highlights */
+  --on-accent: #102F35;     /* button text */
+  --accent-hover: #9AE2CD;
+  --text: #E1E9E7;          /* headers, main text */
+  --muted: #AFC0C1;         /* descriptions, secondary text */
+  --line: rgba(175, 192, 193, 0.22);
+  --radius: 6px;
+  --max: 1040px;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-head: "Inter", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--muted); font: 400 1rem/1.65 var(--font-body); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+h1, h2, h3, h4 { margin: 0; color: var(--text); font-family: var(--font-head); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+a { color: var(--accent); }
+img { display: block; max-width: 100%; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 3.5rem 0; }
+p { margin: 0; }
+
+/* ---------- Banner ---------- */
+.banner { background: var(--banner); border-bottom: 1px solid var(--line); }
+.banner-inner { display: flex; align-items: center; gap: 2.25rem; padding-top: 2rem; padding-bottom: 2rem; }
+.banner-gif { flex: none; width: 240px; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); background: var(--bg); }
+.banner h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); }
+.banner .kicker { margin-bottom: .5rem; color: var(--accent); font-weight: 500; }
+.banner .lede { margin-top: .9rem; max-width: 48ch; }
+
+/* ---------- Simulation / experiment gifs ---------- */
+.demos { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+.demos figure { margin: 0; text-align: center; }
+.demos h2 { margin-bottom: 1rem; font-size: 1.5rem; }
+.media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--banner); border: 1px solid var(--line); border-radius: var(--radius); }
+.media img { width: 100%; height: 100%; object-fit: cover; }
+.demos figcaption { margin-top: .75rem; font-size: .9rem; }
+
+/* ---------- Action cards ---------- */
+.actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.card { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1.75rem 1.5rem; text-align: center; background: var(--banner); border: 1px solid var(--line); border-radius: var(--radius); }
+.card p { font-size: .95rem; }
+.btn { display: inline-block; padding: .7rem 1.7rem; border: 0; border-radius: var(--radius); background: var(--accent); color: var(--on-accent); font: 600 1rem var(--font-body); text-decoration: none; cursor: pointer; transition: background .15s; }
+.btn:hover { background: var(--accent-hover); }
+.btn:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.when { width: 100%; margin: .25rem 0 0; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .9rem; }
+.when dt { color: var(--text); font-weight: 600; }
+.when dd { margin: 0 0 .6rem; }
+
+/* ---------- Contact panel ---------- */
+.panel { margin-top: 1.5rem; padding: 1.5rem 1.75rem; background: var(--banner); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius); }
+.panel[hidden] { display: none; }
+.panel dl { display: grid; grid-template-columns: max-content 1fr; gap: .6rem 2rem; margin: 0; }
+.panel dt { color: var(--text); font-weight: 600; }
+.panel dd { margin: 0; }
+
+/* ---------- About us (paper-style author blocks) ---------- */
+.section-title { margin-bottom: 1.5rem; font-size: 2rem; }
+.person { display: grid; grid-template-columns: 240px 1fr; gap: 1rem 2.5rem; padding: 1.75rem 0; border-top: 1px solid var(--line); }
+.person:last-child { border-bottom: 1px solid var(--line); }
+.person h3 { font-size: 1.5rem; }
+.rank { margin-top: .3rem; font-style: italic; }
+.person h4 { margin-bottom: .6rem; color: var(--accent); font-family: var(--font-body); font-size: 1rem; font-weight: 600; }
+.person .bio { text-align: justify; hyphens: auto; }
+
+/* ---------- About page (poster) ---------- */
+.back { display: inline-block; padding: 1rem 0; text-decoration: none; font-weight: 500; }
+.poster { padding-top: 3.5rem; padding-bottom: 4rem; }
+.poster h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+.poster .lede { margin-top: 1rem; font-size: 1.15rem; }
+.parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.part { padding: 1.5rem; background: var(--banner); border: 1px solid var(--line); border-radius: var(--radius); }
+.part .num { display: block; margin-bottom: .5rem; color: var(--accent); font: 600 2.6rem/1 var(--font-head); }
+.part h2 { font-size: 1.4rem; }
+.part .meta { margin-top: .2rem; font-size: .9rem; }
+.part ul, .outcomes { margin: 1rem 0 0; padding-left: 1.1rem; }
+.part li, .outcomes li { margin-bottom: .45rem; }
+.outcomes { columns: 2; column-gap: 3rem; }
+.outcomes li { break-inside: avoid; }
+.poster h2.sub { margin-bottom: 1rem; font-size: 1.6rem; }
+
+@media (max-width: 760px) {
+  .banner-inner { flex-direction: column; align-items: flex-start; }
+  .banner-gif { width: 100%; }
+  .demos, .actions, .parts { grid-template-columns: 1fr; }
+  .person { grid-template-columns: 1fr; }
+  .outcomes { columns: 1; }
+  .panel dl { grid-template-columns: 1fr; gap: .1rem; }
+  .panel dd { margin-bottom: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
