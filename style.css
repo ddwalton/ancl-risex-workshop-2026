@@ -85,7 +85,7 @@ p { margin: 0; }
 }
 
 /* ---------- Simulation / experiment gifs ---------- */
-.demos { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+.demos { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: -5.0rem; }
 .demos figure { margin: 0; text-align: center; }
 .demos h2 { margin-bottom: 1rem; font-size: 1.5rem; }
 .media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--banner); border: 1px solid var(--line); border-radius: var(--radius); }
@@ -183,6 +183,7 @@ p { margin: 0; }
 .person .bio { text-align: justify; hyphens: auto; }
 
 /* ---------- About page (poster) ---------- */
+body.about-page { background: var(--bg); }
 .back { display: inline-block; padding: 1rem 0; text-decoration: none; font-weight: 500; }
 .poster { padding-top: 3.5rem; padding-bottom: 4rem; }
 .poster h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
